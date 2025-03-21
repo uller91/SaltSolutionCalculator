@@ -10,6 +10,14 @@ M_mol_water = 18.0146 #g/mol
 T_water_crit = 647.096 #K
 ro_water_crit = 322 #kg/m3
 
+def get_water_parameters(parameter):
+    match parameter.lower():
+        case "molar_mass":
+            return 18.0146 #g/mol
+        case "T_crit":
+            return 647.096 #K
+        case "ro_crit":
+            return 322 #kg/m3
 
 def get_salt_molar_mass(salt):
     match salt.lower():
@@ -85,11 +93,11 @@ def calculate_salt_solutiion_density_LiBr(N_mol, T_c):
     #print(ro_salt_sol)
     for i in range(2):
         ro_salt_sol += ro_water_crit * 1000/M_mol_water * (a_i[i]*salt_molar_ratio*math.pow(theta, t_i[i]))
-    return ro_salt_sol * (salt_molar_ratio*M_mol+(1-salt_molar_ratio)*M_mol_water)/1000
+    return ro_salt_sol * (salt_molar_ratio*M_mol+(1-salt_molar_ratio)*M_mol_water)/1000/1000
 
 
 #print(calcualate_water_density(30))
 #print(calculate_salt_solution_density(4,30,"cacl2"))
 #print(calculate_salt_solutiion_density_CaCl2_LiCl(4,30,"cacl2"))
 #print(calculate_salt_solution_density(2,30,"licl"))
-#print(calculate_salt_solution_density(4,30,"libr"))
+#print(calculate_salt_solution_density(2,30,"libr"))
