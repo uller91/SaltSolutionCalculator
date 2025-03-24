@@ -43,7 +43,6 @@ def calcualate_water_density(T_c): #C
     for i in range(6):
         ro_water += ro_water_crit * B_i[i]*math.pow(tau,(tau_pow[i]))
 
-    #print(ro_water)
     return ro_water #kg/m3
 
 
@@ -88,9 +87,7 @@ def calculate_salt_solutiion_density_LiBr(N_mol, T_c):
     a_i = [1.746, 4.709]
 
     salt_molar_ratio = 1/(1 + N_mol)
-    #print(salt_molar_ratio)
     ro_salt_sol = (1-salt_molar_ratio) * calcualate_water_density(T_c) * 1000/M_mol_water #mol/m3
-    #print(ro_salt_sol)
     for i in range(2):
         ro_salt_sol += ro_water_crit * 1000/M_mol_water * (a_i[i]*salt_molar_ratio*math.pow(theta, t_i[i]))
     return ro_salt_sol * (salt_molar_ratio*M_mol+(1-salt_molar_ratio)*M_mol_water)/1000/1000
