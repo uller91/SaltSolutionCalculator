@@ -94,7 +94,5 @@ def calculate_salt_solutiion_density_LiBr(N_mol, T_c):
 
 
 #print(calcualate_water_density(30))
-#print(calculate_salt_solution_density(4,30,"cacl2"))
-#print(calculate_salt_solutiion_density_CaCl2_LiCl(4,30,"cacl2"))
-#print(calculate_salt_solution_density(2,30,"licl"))
-#print(calculate_salt_solution_density(2,30,"libr"))
+#print(calculate_salt_solution_density(6,30,"cacl2"))
+
